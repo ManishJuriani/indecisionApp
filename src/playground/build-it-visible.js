@@ -1,34 +1,37 @@
-let hideDetails = true;
+class VisibilityToggle extends React.Component{
+    constructor(props){
+        super(props)
+        {
+            this.handleHideAndSeek = this.handleHideAndSeek.bind(this)
+            this.state = {
+                details: 'Some details to be shown',
+                visibility: false
+            }
+        }
+    }
 
-const main = {
-    title: "Visibility Toggle",
-    subtitle: "Hide & Seek",
-    details: "Some details to be shown"
-    // ,hideDetails: true
+    handleHideAndSeek(){
+        this.setState((prevState)=>{
+            return {
+                visibility: !prevState.visibility
+            }
+        })
+    }
+
+    render(){
+        return (
+            <div>
+                <h1>Visibility Toggle</h1>
+                <h2>Hide & Seek</h2>
+                <button onClick={this.handleHideAndSeek}>{this.state.visibility?'Hide Details':'Show Details'}</button>
+                {this.state.visibility && (
+                    <div>
+                        <h3>Some important details to be shown here</h3>
+                    </div>
+                )}
+            </div>
+        );
+    }
 }
 
-const whatToShow = ()=>{
-    return <p>{main.details}</p>
-}
-
-const hideAndSeek = ()=>{
-    hideDetails = !hideDetails;
-    renderBuildItVisible();
-}
-
-const renderBuildItVisible = ()=>{
-    const template = (
-        <div>
-            <h1>{main.title}</h1>
-            <h3>{main.subtitle}</h3>
-            <button onClick={hideAndSeek}> {hideDetails?"Show Details":"Hide Details"}</button>
-            {!hideDetails && whatToShow()}
-        </div>
-    
-    );
-    ReactDOM.render(template,appRoot)    
-}
-
-const appRoot = document.getElementById("app");
-
-renderBuildItVisible();
+ReactDOM.render(<VisibilityToggle />,document.getElementById('app'))
