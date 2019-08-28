@@ -18,6 +18,7 @@
     "live-server": "^1.2.1",
     "react": "16.0.0",
     "react-dom": "16.0.0",
+    "react-linechart": "^1.1.12",
     "react-modal": "2.2.2",
     "serve": "^11.1.0",
     "validator": "8.0.0",
