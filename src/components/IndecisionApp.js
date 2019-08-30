@@ -18,30 +18,6 @@ export default class IndecisionApp extends React.Component{
             selectedOption: undefined 
         }
     }
-    componentDidMount(){
-
-        fetch('http://localhost:5000/ages')
-        .then(res => res.json())
-        .then((data) => {
-            console.log(data)
-        }).catch(console.log)
-        
-        // fetch('https://jsonplaceholder.typicode.com/todos')
-        // .then(response => response.json())
-        // .then(json => console.log(json))
-
-        try{
-            const json = localStorage.getItem('options');
-            const options = JSON.parse(json);
-            
-            if(options){
-                this.setState(()=>({options}))
-            }        
-        }catch(e){
-            //Do nothing at all
-        }
-
-    }
     componentDidUpdate(prevProps, prevState){
         if(prevState.options.length != this.state.options.length){
             const json = JSON.stringify(this.state.options);
