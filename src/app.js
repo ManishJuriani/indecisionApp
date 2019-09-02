@@ -1,12 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import LineChart from 'react-linechart'
 import IndecisionApp from './components/IndecisionApp'
-
-export default class App extends React.Component {
-    render() {
-        
-    }
-}
+import './styles/styles.scss';
+import 'normalize.css/normalize.css'
 
 ReactDOM.render(<IndecisionApp/>,document.getElementById('app'))
